@@ -1,3 +1,5 @@
+@use 'styles/breakpoints.scss' as *;
+
 .container {
   display: flex;
   flex-direction: column;
@@ -141,6 +143,26 @@
           background: #836fb5;
           border-radius: 12px;
         }
+      }
+    }
+  }
+}
+
+@include from720 {
+  .container {
+    .shows {
+      .searchResults {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+}
+
+@include from1280 {
+  .container {
+    .shows {
+      .searchResults {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
   }

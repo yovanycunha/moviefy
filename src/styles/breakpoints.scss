@@ -1,0 +1,70 @@
+$smartphoneExtraSmall: 320px;
+$smartphoneSmall: 375px;
+$smartphoneMedium: 425px;
+$smartphoneLarge: 480px;
+$tabletSmall: 720px;
+$tabletLarge: 840px;
+$pcExtraSmall: 960px;
+$pcSmall: 1024px;
+$pcMedium: 1280px;
+$pcLarge: 1440px;
+
+@mixin from320 {
+  @media screen and (min-width: $smartphoneExtraSmall) {
+    @content;
+  }
+}
+
+@mixin from375 {
+  @media screen and (min-width: $smartphoneSmall) {
+    @content;
+  }
+}
+
+@mixin from425 {
+  @media screen and (min-width: $smartphoneMedium) {
+    @content;
+  }
+}
+
+@mixin from480 {
+  @media screen and (min-width: $smartphoneLarge) {
+    @content;
+  }
+}
+
+@mixin from720 {
+  @media screen and (min-width: $tabletSmall) {
+    @content;
+  }
+}
+
+@mixin from840 {
+  @media screen and (min-width: $tabletLarge) {
+    @content;
+  }
+}
+
+@mixin from960 {
+  @media screen and (min-width: $pcExtraSmall) {
+    @content;
+  }
+}
+
+@mixin from1024 {
+  @media screen and (min-width: $pcSmall) {
+    @content;
+  }
+}
+
+@mixin from1280 {
+  @media screen and (min-width: $pcMedium) {
+    @content;
+  }
+}
+
+@mixin from1440 {
+  @media screen and (min-width: $pcLarge) {
+    @content;
+  }
+}
