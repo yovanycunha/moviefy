@@ -1,0 +1,16 @@
+@use 'colors.module.scss' as *;
+
+html,
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: normal;
+  font-variant: normal;
+}
+
+html {
+  font-size: 62.5%;
+
+  scroll-behavior: smooth;
+}

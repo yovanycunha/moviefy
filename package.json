@@ -1,0 +1,47 @@
+{
+  "name": "casa-verde",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@svgr/webpack": "^6.3.1",
+    "@typescript-eslint/eslint-plugin": "^5.38.0",
+    "autoprefixer": "^10.4.11",
+    "axios": "^0.27.2",
+    "eslint-plugin-import-helpers": "^1.2.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "next": "12.3.1",
+    "next-fonts": "^1.5.1",
+    "next-images": "^1.8.4",
+    "nextjs-fonts": "^0.22.0",
+    "normalize.css": "^8.0.1",
+    "postcss": "^8.4.16",
+    "postcss-scss": "^4.0.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "sass": "^1.54.9"
+  },
+  "devDependencies": {
+    "@types/node": "18.7.18",
+    "@types/react": "18.0.20",
+    "@types/react-dom": "18.0.6",
+    "eslint": "8.23.1",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-next": "^12.3.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^2.7.1",
+    "stylelint": "^14.12.0",
+    "stylelint-config-sass-guidelines": "^9.0.1",
+    "stylelint-config-standard": "^28.0.0",
+    "typescript": "4.8.3"
+  }
+}
