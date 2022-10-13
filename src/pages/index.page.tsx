@@ -1,16 +1,17 @@
 import type { NextPage } from 'next';
 import Image from 'next/image';
 
+import Nav from '@components/Nav/Nav';
 import useWatchlistContext from '@hooks/useWatchlistContext';
 import axios from 'axios';
 import React, { useState } from 'react';
 
 import style from './Home/Home.module.scss';
 
-import genericPoster from './Home/images/movie2.jpeg';
+import genericPoster from '../../public/images/movie2.jpeg';
 
 const Home: NextPage = () => {
-  const { watchlist, add } = useWatchlistContext();
+  const { add } = useWatchlistContext();
   const [searchInput, setSearchInput] = useState('');
   const [searchResult, setSearchResult] = useState<any[]>([]);
 
@@ -23,27 +24,10 @@ const Home: NextPage = () => {
     }
   };
 
-  const addToWatchlist = (index: any) => {
+  const addToWatchlist = (index: number) => {
     const newMovie = searchResult[index];
     add({ Title: newMovie.Title, Poster: newMovie.Poster });
   };
-
-  const renderNavItems = () => (
-    <div className={style.listWrapper}>
-      <ul className={style.itemsList}>
-        <li className={style.item}>
-          <a className={style.itemText} href="/">
-            Home
-          </a>
-        </li>
-        <li className={style.item}>
-          <a className={style.itemText} href="/">
-            Minha Watchlist
-          </a>
-        </li>
-      </ul>
-    </div>
-  );
 
   const renderCards = () => {
     const cards = searchResult.map((movie, index) => {
@@ -70,7 +54,7 @@ const Home: NextPage = () => {
 
   return (
     <div className={style.container}>
-      <nav className={style.nav}>{renderNavItems()}</nav>
+      <Nav />
       <section className={style.aboutSection}>
         <div className={style.about}>
           <h1 className={style.title}>Moviefy</h1>

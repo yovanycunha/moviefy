@@ -9,6 +9,7 @@ type TMovie = {
 type TWatchlistContext = {
   movies: TMovie[];
   addMovie: (newMoview: TMovie) => void;
+  setWatchlist: (newWatchlist: TMovie[]) => void;
 };
 
 interface IWatchlistProviderProps {
@@ -27,12 +28,17 @@ const WatchlistProvider = ({ children }: IWatchlistProviderProps) => {
     [watchlist]
   );
 
+  const setNewWatchlist = useCallback((newWatchlist: TMovie[]) => {
+    setWatchlist(newWatchlist);
+  }, []);
+
   return (
     <WatchlistContext.Provider
       // eslint-disable-next-line react/jsx-no-constructed-context-values
       value={{
         movies: watchlist,
         addMovie: update,
+        setWatchlist: setNewWatchlist,
       }}
     >
       {children}

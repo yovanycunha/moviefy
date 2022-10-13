@@ -1,0 +1,29 @@
+.nav {
+  padding: 8px 16px;
+
+  background: #000;
+
+  .listWrapper {
+    display: flex;
+
+    .itemsList {
+      display: flex;
+
+      margin: auto;
+      padding: 0;
+
+      .item {
+        padding: 8px;
+
+        .itemText {
+          color: #fff;
+          font-size: 1.6rem;
+          font-weight: 600;
+          line-height: 2.4rem;
+
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

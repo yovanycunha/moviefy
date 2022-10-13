@@ -9,7 +9,12 @@ const useWatchlistContext = () => {
 
   const add = useContextSelector(WatchlistContext, ({ addMovie }) => addMovie);
 
-  return { watchlist, add };
+  const setNewWatchlist = useContextSelector(
+    WatchlistContext,
+    ({ setWatchlist }) => setWatchlist
+  );
+
+  return { watchlist, add, setNewWatchlist };
 };
 
 export default useWatchlistContext;
