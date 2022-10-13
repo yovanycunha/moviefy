@@ -4,6 +4,7 @@ import { createContext } from 'use-context-selector';
 type TMovie = {
   Title: string;
   Poster: string;
+  id: string;
 };
 
 type TWatchlistContext = {

@@ -20,13 +20,21 @@ const Home: NextPage = () => {
       const { data } = await axios.get(
         `https://www.omdbapi.com/?apikey=ebcafd7d&s=${searchInput}`
       );
+      if (data.response === 'false') {
+        return;
+      }
+
       setSearchResult(data.Search);
     }
   };
 
   const addToWatchlist = (index: number) => {
     const newMovie = searchResult[index];
-    add({ Title: newMovie.Title, Poster: newMovie.Poster });
+    add({
+      Title: newMovie.Title,
+      Poster: newMovie.Poster,
+      id: newMovie.imdbID,
+    });
   };
 
   const renderCards = () => {
@@ -36,7 +44,7 @@ const Home: NextPage = () => {
         srcPoster = movie.Poster;
       }
       return (
-        <div className={style.card}>
+        <div className={style.card} key={Math.random()}>
           <h3 className={style.cardTitle}>{movie.Title}</h3>
           <Image src={srcPoster} layout="responsive" width={320} height={420} />
           <button

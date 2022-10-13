@@ -7,27 +7,35 @@ import style from './Watchlist.module.scss';
 
 import GenericPoster from '../../../public/images/movie2.jpeg';
 
+type TMovie = {
+  Title: string;
+  Poster: string;
+  id: string;
+};
+
 function Watchlist() {
-  const { watchlist } = useWatchlistContext();
+  const { watchlist, setNewWatchlist } = useWatchlistContext();
 
-  const removeFromWatchlist = (index: number) => {
-    const newWatchlist = watchlist.splice(index, 1);
+  const removeFromWatchlist = (id: string) => {
+    const newWatchlist = watchlist.filter((movie: TMovie) => {
+      return movie.id !== id;
+    });
 
-    console.log('remove', newWatchlist, watchlist);
+    setNewWatchlist(newWatchlist);
   };
 
   const renderWatchlist = () => {
-    const cards = watchlist.map((movie, index: number) => {
+    const cards = watchlist.map((movie: TMovie) => {
       let srcPoster = GenericPoster;
       if (movie.Poster !== 'N/A') {
         srcPoster = movie.Poster;
       }
       return (
-        <div className={style.card}>
+        <div className={style.card} key={Math.random()}>
           <h3 className={style.cardTitle}>{movie.Title}</h3>
           <Image src={srcPoster} layout="responsive" width={320} height={420} />
           <button
-            onClick={() => removeFromWatchlist(index)}
+            onClick={() => removeFromWatchlist(movie.id)}
             className={style.removeBtn}
             type="submit"
           >
