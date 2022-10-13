@@ -1,12 +1,16 @@
 import type { NextPage } from 'next';
 import Image from 'next/image';
 
+import useWatchlistContext from '@hooks/useWatchlistContext';
 import axios from 'axios';
 import React, { useState } from 'react';
 
 import style from './Home/Home.module.scss';
 
+import genericPoster from './Home/images/movie2.jpeg';
+
 const Home: NextPage = () => {
+  const { watchlist, add } = useWatchlistContext();
   const [searchInput, setSearchInput] = useState('');
   const [searchResult, setSearchResult] = useState<any[]>([]);
 
@@ -17,6 +21,11 @@ const Home: NextPage = () => {
       );
       setSearchResult(data.Search);
     }
+  };
+
+  const addToWatchlist = (index: any) => {
+    const newMovie = searchResult[index];
+    add({ Title: newMovie.Title, Poster: newMovie.Poster });
   };
 
   const renderNavItems = () => (
@@ -37,23 +46,26 @@ const Home: NextPage = () => {
   );
 
   const renderCards = () => {
-    if (searchResult.length === 0) return <div />;
-    return searchResult.map((movie) => {
+    const cards = searchResult.map((movie, index) => {
+      let srcPoster = genericPoster;
+      if (movie.Poster !== 'N/A') {
+        srcPoster = movie.Poster;
+      }
       return (
         <div className={style.card}>
           <h3 className={style.cardTitle}>{movie.Title}</h3>
-          <Image
-            src={movie.Poster}
-            layout="responsive"
-            width={320}
-            height={420}
-          />
-          <button className={style.addBtn} type="submit">
+          <Image src={srcPoster} layout="responsive" width={320} height={420} />
+          <button
+            onClick={() => addToWatchlist(index)}
+            className={style.addBtn}
+            type="submit"
+          >
             Adicionar na Watchlist
           </button>
         </div>
       );
     });
+    return cards;
   };
 
   return (
@@ -76,7 +88,9 @@ const Home: NextPage = () => {
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
         />
-        <div className={style.searchResults}>{renderCards()}</div>
+        {searchResult.length !== 0 && (
+          <div className={style.searchResults}>{renderCards()}</div>
+        )}
       </section>
     </div>
   );

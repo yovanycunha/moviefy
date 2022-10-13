@@ -125,9 +125,17 @@
         border-radius: 8px;
 
         .cardTitle {
+          overflow: hidden;
+
+          display: -webkit-box;
+
           font-size: 2rem;
           font-weight: 400;
           line-height: 2.2rem;
+
+          text-overflow: ellipsis;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 1;
         }
 
         .addBtn {
@@ -160,9 +168,15 @@
 
 @include from1280 {
   .container {
+    min-height: 100vh;
+
     .shows {
       .searchResults {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 385px);
+
+        justify-content: space-evenly;
+
+        padding: 21px;
       }
     }
   }
