@@ -6,12 +6,9 @@ export default class _Document extends Document {
       <Html>
         <Head>
           <title>MovieFy - PWA</title>
-          <link
-            rel="shortcut icon"
-            href="alarm-clock.png"
-            type="image/x-icon"
-          />
+          <link rel="apple-touch-icon" href="/icon.png" />
           <link rel="manifest" href="/manifest.json" />
+          <meta name="theme-color" content="#fff" />
         </Head>
         <body>
           <Main />
