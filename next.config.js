@@ -10,7 +10,7 @@ const withFonts = require('nextjs-fonts');
 module.exports = withPWA(
   withImages(
     withFonts({
-      restictStrictMode: true,
+      reactStrictMode: true,
       sassOptions: {
         cssModules: true,
         includePaths: ['./src'],
